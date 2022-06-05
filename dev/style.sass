@@ -10,7 +10,9 @@
     
 *,*::after,*::before
     box-sizing: border-box
-
+body,html
+    position: relative 
+    overflow-x: hidden
 body
     width:100vw
     min-height:100vh
@@ -22,11 +24,14 @@ body
     flex-flow: $direction $wrap
     justify-content: $justify
     align-items: $align
+
+// NAVIGATION MENU STYLES
 .pageNav
     @include flex(row,wrap,space-around,center)
     position: relative
     width:100%
     height:5rem
+    z-index:20
 .OPENED.pageNav::after
         content:''
         position: absolute
@@ -84,7 +89,120 @@ body
         width:2rem
         height:2rem
 
+
+// MAIN PAGE CONTENT STYLES
+// MAIN PAGE SLIDE STYLES
+.Sliding
+    opacity:0.1
+.mainContent
+    width:100%
+.mainContent__slideAlert
+    display: none
+.mainContent__slide
+    position: relative
+    @include flex(column,wrap,center,center)
+    width:100%
+    height:60vh
+    &--mainImage
+        display: inline-block
+        width:100%
+        height:100%
+        transition: opacity .5s
+    &--thumbnails
+        display: none
+    &--buttons
+        position: absolute
+        top:0
+        left:0
+        @include flex(row,wrap,space-between,center)
+        width:100%
+        height:100%
+        z-index:10
+        &_button
+            @include flex(row,wrap,center,center)
+            width:2.5rem
+            height:2.5rem
+            background-color: #fff
+            border-radius: 50%
+            margin:0 1rem
+
+// MAIN PAGE INFO STYLES
+.mainContent__info
+    @include flex(column,wrap,center,center)
+    width: clamp(40%,22.5rem,100%)
+.mainContent__info--text
+    padding:.5rem 1rem
+    line-height:1.8rem
+    &_brand
+        color: var(--Orange)
+        font-size: .9em
+    &_product
+        font:
+            size:1.5em
+            weight:700
+    &_description
+        color: var(--Grayish_blue)
+        font-size: .9em
+
+.mainContent__info--price
+    @include flex(row,wrap,space-between,center)
+    width:100%
+    padding:2rem 1rem
+    &_Container
+        @include flex(row,wrap,center,center)
+        gap:.4rem
+        width:50%
+    &_real
+        font:
+            size:1.5em
+            weight:700
+    &_discount
+        font:
+            size:.8em
+            weight:700
+        color: var(--Orange)
+        background-color: var(--Pale_orange)
+        padding:.25rem 0.5rem
+            border-radius: 20px
+    &_initial
+        font:
+            size:.8em
+            weight:700
+        color: var(--Grayish_blue)
+        text-decoration: line-through
+.mainContent__info--interact
+    @include flex(row,wrap,center,center)
+    gap:1rem
+    width: 100%
+    &_amount
+        @include flex(row,wrap,space-between,center)
+        width: 100%
+        padding:1rem
+        margin:1rem
+        border-radius: 10px
+        background-color: var(--Light_grayish_blue)
+        &-qu
+            font-weight: 700
+        &-icon
+            cursor: pointer
+            padding:1rem
+    &_cart
+        @include flex(row,wrap,center,center)
+        gap:.4rem
+        width: 100%
+        padding:1rem
+        margin:1rem
+        border-radius: 10px
+        background-color: var(--Orange)
+        color: #fff
+        transition: opacity .3s , transform .3s
+        cursor: pointer
+        &:hover
+            opacity:0.5
+            transform: scale(.9)
+// MEDIA QUERY STYLES FOR PC
 @media screen and (min-width: 1100px)
+    // PAGE NAV QUERY STYLES FOR PC
     .pageNav
         justify-content: space-between
         &__logo
@@ -131,5 +249,121 @@ body
             &:hover::after
                 transform: scaleX(1)
             
+    // PAGE MAIN CONTENT QUERY STYLES FOR PC
+    // PAGE MAIN CONTENT SLIDE QUERY STYLES FOR PC 
+    
+    .mainContent
+        @include flex(row,wrap,space-around,center)
+        width:100%
+        overflow: hidden
+    .mainContent__slide,.mainContent__slideAlert
+        position: relative
+        @include flex(column,wrap,center,center)
+        width:40%
+        height: auto
+        &--mainImage
+            display: inline-block
+            width:30rem
+            height:30rem
+            margin:1rem 5rem
+            border-radius: 10px
+            transition: opacity .5s
+            cursor: pointer
+        &--thumbnails
+            @include flex(row,wrap,space-around,center)
+            width: 30rem
+            &--img
+                width: 20%
+                border-radius:10px
+                transition: all .1s
+                cursor: pointer
+                &:hover
+                    outline: 3px solid var(--Orange)
+                    opacity:.5
+        &--buttons
+            position: absolute
+            top:0
+            left:0
+            @include flex(row,wrap,space-between,center)
+            display: none
+            width:100%
+            height:100%
+            z-index:10
+            &_button
+                @include flex(row,wrap,center,center)
+                width:2.5rem
+                height:2.5rem
+                background-color: #fff
+                border-radius: 50%
+                margin:0 1rem
+                transition: transform .3s
+                cursor: pointer
+    .mainContent__slideAlert
+        position: absolute
+        top:0
+        left:0
+        width:100vw
+        height:100%
+        background-color: rgba(0 0 0 /.5)
+        z-index:30
+        &--close
+            width:1.5rem
+            height:1.5rem
+            cursor: pointer
+            transition: transform .3s
+            margin-left:30%
+            animation: appearLeft .5s 
+            &:hover
+                transform: scale(1.2)
+        &--mainImage
+            animation: appearLeft .5s
+    .mainContent__slideAlert--buttons
+        left:50vw
+        top:50vh
+        transform: translateX(-50%) translateY(-50%)
+        width:35rem
+        height:30rem
+        display: flex
+        animation: appearPop .5s
+        &_button:hover
+            transform: scale(1.2)
+    .mainContent__slideAlert--thumbnails
+        animation: appearRight .5s
+            
+    .CLOSED
+        display: none
+    // PAGE MAIN INFO QUERY STYLES FOR PC
+    .mainContent__info--interact_cart
+        width:65%
+        margin:0
+        height:4.5rem
+    .mainContent__info--interact_amount
+        width:30%
+        margin:0
+        height:4.5rem
+    .mainContent__info--price
+        flex-direction: column
+        align-items: flex-start
+    .mainContent__info--price_Container
+        justify-content: flex-start
 
-
+@keyframes appearLeft
+    from
+        transform: translateX(-100vw) 
+        
+    to
+        transform: initial
+@keyframes appearPop
+    from
+        transform: translateX(-50%) translateY(-60%)
+        opacity:0
+        
+    to
+        transform: translateX(-50%) translateY(-50%)
+        opacity:1
+@keyframes appearRight
+    from
+        transform: translateX(100vw) 
+        
+    to
+        transform: initial

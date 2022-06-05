@@ -38,29 +38,97 @@
       <img src="assets/images/image-avatar.png" class="pageNav__ui--avatar">
     </div>
   </nav>
-  
+  <main class="mainContent">
+      <section class="mainContent__slide">
+
+        <div class="mainContent__slide--buttons" id="slideButtons">
+
+          <div class="mainContent__slide--buttons_button" data-direction="left">
+            <img class="mainContent__slide--buttons_button-icon" src="assets/images/icon-previous.svg">
+          </div>
+          
+          <div class="mainContent__slide--buttons_button" data-direction="right">
+            <img class="mainContent__slide--buttons_button-icon" src="assets/images/icon-next.svg">
+          </div>
+
+        </div>
+
+        <img src="assets/images/image-product-1.jpg" class="mainContent__slide--mainImage" id="slideImage">
+
+        <div class="mainContent__slide--thumbnails" id="thumbnails">
+          <img class="mainContent__slide--thumbnails--img" src="assets/images/image-product-1-thumbnail.jpg">
+
+          <img class="mainContent__slide--thumbnails--img" src="assets/images/image-product-2-thumbnail.jpg">
+
+          <img class="mainContent__slide--thumbnails--img" src="assets/images/image-product-3-thumbnail.jpg">
+
+          <img class="mainContent__slide--thumbnails--img" src="assets/images/image-product-4-thumbnail.jpg">
+        </div>
+
+      </section>
+      <section class="mainContent__slideAlert CLOSED" id="slideAlert">
+        <img class="mainContent__slideAlert--close" src="assets/images/icon-close.svg" id="closeAlert">
+        <div class="mainContent__slideAlert--buttons" id="slideAlertButtons">
+
+          <div class="mainContent__slideAlert--buttons_button" data-direction="left">
+            <img class="mainContent__slideAlert--buttons_button-icon" src="assets/images/icon-previous.svg">
+          </div>
+          
+          <div class="mainContent__slideAlert--buttons_button" data-direction="right">
+            <img class="mainContent__slideAlert--buttons_button-icon" src="assets/images/icon-next.svg">
+          </div>
+
+        </div>
+
+        <img src="assets/images/image-product-1.jpg" class="mainContent__slideAlert--mainImage" id="slideAlertImage">
+
+        <div class="mainContent__slideAlert--thumbnails" id="thumbnailsAlert">
+          <img class="mainContent__slideAlert--thumbnails--img" src="assets/images/image-product-1-thumbnail.jpg">
+
+          <img class="mainContent__slideAlert--thumbnails--img" src="assets/images/image-product-2-thumbnail.jpg">
+
+          <img class="mainContent__slideAlert--thumbnails--img" src="assets/images/image-product-3-thumbnail.jpg">
+
+          <img class="mainContent__slideAlert--thumbnails--img" src="assets/images/image-product-4-thumbnail.jpg">
+        </div>
+      </section>
+      <section class="mainContent__info">
+        <div class="mainContent__info--text">
+          <p class="mainContent__info--text_brand">Sneaker Company</p>
+          <p class="mainContent__info--text_product">Fall Limited Edition Sneakers</p>
+          <p class="mainContent__info--text_description">These low-profile sneakers are your perfect casual wear companion. Featuring a 
+            durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+        </div>
+        <div class="mainContent__info--price">
+          <div class="mainContent__info--price_Container">
+            <p class="mainContent__info--price_real">$125.00</p>
+            <p class="mainContent__info--price_discount">50%</p>
+          </div>
+          <p class="mainContent__info--price_initial">$250.00</p>
+        </div>
+        <div class="mainContent__info--interact">
+          <div class="mainContent__info--interact_amount">
+            <img src="assets/images/icon-plus.svg" class="mainContent__info--interact_amount-icon">
+            <span class="mainContent__info--interact_amount-qu">0</span>
+            <img src="assets/images/icon-minus.svg" class="mainContent__info--interact_amount-icon">
+          </div>
+          <div class="mainContent__info--interact_cart">
+            <img class="mainContent__info--interact_cart-icon" src="assets/images/icon-cart.svg">
+            <p class="mainContent__info--interact_cart-text">Add to cart</p>
+          </div>
+        </div>
+      </section>
+  </main>
   
   
   
   
 
-  <!-- Sneaker Company
 
-  Fall Limited Edition Sneakers
-
-  These low-profile sneakers are your perfect casual wear companion. Featuring a 
-  durable rubber outer sole, they’ll withstand everything the weather can offer.
-
-  $125.00
-  50%
-  $250.00
-
-  0
-  Add to cart -->
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="https://github.com/jlopcun">Jlopcuns</a>.
   </div>
   <script src="scripts/main.js" type="module"></script>
 </body>
