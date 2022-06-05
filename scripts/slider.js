@@ -45,7 +45,7 @@ const moveSlide = (target,mainImage) =>{
         mainImage.classList.add('Sliding');
         
         setTimeout(()=>{
-            mainImage.src = `.assets/images/image-product-${imgToDisplay}.jpg`
+            mainImage.src = `./assets/images/image-product-${imgToDisplay}.jpg`
         },300)
 
         setTimeout(()=>{
