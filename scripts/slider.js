@@ -13,8 +13,8 @@ const moveSlide = (target,mainImage) =>{
             
             setTimeout(()=>{
                 (Number(actualImage)+1 === 5)
-            ?mainImage.src = `http://127.0.0.1:5500/assets/images/image-product-${1}.jpg`
-            :mainImage.src = `http://127.0.0.1:5500/assets/images/image-product-${Number(actualImage)+1}.jpg`
+            ?mainImage.src = `./assets/images/image-product-${1}.jpg`
+            :mainImage.src = `./assets/images/image-product-${Number(actualImage)+1}.jpg`
             },300)
 
             setTimeout(()=>{
@@ -26,8 +26,8 @@ const moveSlide = (target,mainImage) =>{
 
             setTimeout(()=>{
                 (Number(actualImage)-1 === 0)
-            ?mainImage.src = `http://127.0.0.1:5500/assets/images/image-product-${4}.jpg`
-            :mainImage.src = `http://127.0.0.1:5500/assets/images/image-product-${Number(actualImage)-1}.jpg`
+            ?mainImage.src = `./assets/images/image-product-${4}.jpg`
+            :mainImage.src = `./assets/images/image-product-${Number(actualImage)-1}.jpg`
             },300)
 
             setTimeout(()=>{
@@ -45,7 +45,7 @@ const moveSlide = (target,mainImage) =>{
         mainImage.classList.add('Sliding');
         
         setTimeout(()=>{
-            mainImage.src = `http://127.0.0.1:5500/assets/images/image-product-${imgToDisplay}.jpg`
+            mainImage.src = `.assets/images/image-product-${imgToDisplay}.jpg`
         },300)
 
         setTimeout(()=>{
