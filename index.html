@@ -34,10 +34,16 @@
       <li class="pageNav__ul--item"p>Contact</li>
     </ul>
     <div class="pageNav__ui">
-      <img src="assets/images/icon-cart.svg" class="pageNav__ui--cart">
+      <img src="assets/images/icon-cart.svg" class="pageNav__ui--cart" id="navCart">
       <img src="assets/images/image-avatar.png" class="pageNav__ui--avatar">
     </div>
   </nav>
+  <div class="pageCart" id="pageCart">
+    <p class="pageCart__title">Cart</p>
+    <div class="pageCart__wrapper">
+      <span class="empty">Your cart is empty</span>
+    </div>
+  </div>
   <main class="mainContent">
       <section class="mainContent__slide">
 
@@ -106,15 +112,15 @@
           </div>
           <p class="mainContent__info--price_initial">$250.00</p>
         </div>
-        <div class="mainContent__info--interact">
+        <div class="mainContent__info--interact" id="userInteraction">
           <div class="mainContent__info--interact_amount">
-            <img src="assets/images/icon-plus.svg" class="mainContent__info--interact_amount-icon">
-            <span class="mainContent__info--interact_amount-qu">0</span>
-            <img src="assets/images/icon-minus.svg" class="mainContent__info--interact_amount-icon">
+            <img src="assets/images/icon-plus.svg" class="mainContent__info--interact_amount-icon" data-add="plus">
+            <span class="mainContent__info--interact_amount-qu" id="productAmount">0</span>
+            <img src="assets/images/icon-minus.svg" class="mainContent__info--interact_amount-icon" data-add="minus">
           </div>
-          <div class="mainContent__info--interact_cart">
-            <img class="mainContent__info--interact_cart-icon" src="assets/images/icon-cart.svg">
-            <p class="mainContent__info--interact_cart-text">Add to cart</p>
+          <div class="mainContent__info--interact_cart" data-cart="true">
+            <img class="mainContent__info--interact_cart-icon" src="assets/images/icon-cart.svg" data-cart="true">
+            <p class="mainContent__info--interact_cart-text" data-cart="true">Add to cart</p>
           </div>
         </div>
       </section>
@@ -130,6 +136,17 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="https://github.com/jlopcun">Jlopcuns</a>.
   </div>
+  <template class="cartElementTemplate" id="cartElementTemplate">
+    <div class="pageCart__wrapper--content">
+      <img class="pageCart__wrapper--content_img" src="assets/images/image-product-1-thumbnail.jpg">
+      <div class="pageCart__wrapper--content_text">
+        <p class="pageCart__wrapper--content_text-title">Autmn Limited Edition...</p>
+      <p class="pageCart__wrapper--content_text-price">$125.00 x <span class="pageCart__wrapper--content_text-amount">0</span><span class="pageCart__wrapper--content_text-total"></span></p>
+      </div>
+      <img class="pageCart__wrapper--content_trash" src="assets/images/icon-delete.svg" id="trash">
+    </div>
+    <div class="pageCart__wrapper--content_checkout">Checkout</div>
+  </template>
   <script src="scripts/main.js" type="module"></script>
 </body>
 </html>

@@ -88,6 +88,10 @@ body
         display: inline-block
         width:2rem
         height:2rem
+    &--cart
+        cursor: pointer
+        &:hover
+            animation: balance 1s
 
 
 // MAIN PAGE CONTENT STYLES
@@ -129,7 +133,7 @@ body
 // MAIN PAGE INFO STYLES
 .mainContent__info
     @include flex(column,wrap,center,center)
-    width: clamp(40%,22.5rem,100%)
+    width: 100%
 .mainContent__info--text
     padding:.5rem 1rem
     line-height:1.8rem
@@ -200,6 +204,65 @@ body
         &:hover
             opacity:0.5
             transform: scale(.9)
+
+// PAGE CART STYLES
+.pageCart
+    @include flex(column,wrap,center,center)
+    position: absolute
+    top:5.5rem
+    right:50%
+    width: 20rem
+    height:15rem
+    background-color: #fff
+    box-shadow: 0px 0px 10px rgba(0 0 0 /.5)
+    border-radius:10px
+    transform-origin: top
+    transform: translateX(50%) scaleY(0)
+    padding:.5rem 1rem
+    z-index:30
+    transition: transform .5s
+    &__title
+        width: 100%
+        margin:0
+        font-weight: 700
+        padding-bottom:1rem
+        border-bottom: 2px solid #eee
+.OPENED.pageCart
+    transform: translateX(50%) scaleY(1)
+.pageCart__wrapper
+    @include flex(row,wrap,center,center)
+    width: 100%
+    color: var(--Grayish_blue)
+    height: 60%
+.pageCart__wrapper--content
+    @include flex(row,wrap,center,center)
+    gap:1rem
+    width: 100%
+    &_img
+        width: 3.5rem
+        height:3.5rem
+        border-radius: 10px
+    &_text-title
+        margin:0
+    &_text-price
+        margin:0 
+    &_text-total
+        margin-left:.5rem
+        color:#000
+        font-weight: 700
+    &_checkout
+        color:#fff
+        width: 90%
+        padding:1rem 0
+        background-color: var(--Orange)
+        border-radius: 10px 
+        text-align: center 
+        margin-top:1rem
+        cursor: pointer
+    &_trash
+        cursor: pointer    
+
+
 // MEDIA QUERY STYLES FOR PC
 @media screen and (min-width: 1100px)
     // PAGE NAV QUERY STYLES FOR PC
@@ -333,20 +396,27 @@ body
     .CLOSED
         display: none
     // PAGE MAIN INFO QUERY STYLES FOR PC
+    .mainContent__info
+        width:40%
     .mainContent__info--interact_cart
         width:65%
         margin:0
-        height:4.5rem
+        height:5rem
     .mainContent__info--interact_amount
         width:30%
         margin:0
-        height:4.5rem
+        height:5rem
     .mainContent__info--price
         flex-direction: column
         align-items: flex-start
     .mainContent__info--price_Container
         justify-content: flex-start
-
+    // PAGE CART QUERY STYLES FOR PC
+    .pageCart
+        right: 5rem
+        transform: translateX(0) scaleY(0)
+    .OPENED.pageCart
+        transform: translateX(0) scaleY(1)
 @keyframes appearLeft
     from
         transform: translateX(-100vw) 
@@ -367,3 +437,10 @@ body
         
     to
         transform: initial
+@keyframes balance
+    0%,100%
+        transform: rotate(0)
+    33.33%
+        transform: rotate(20deg)
+    66.66%
+        transform: rotate(-20deg)
