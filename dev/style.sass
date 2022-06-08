@@ -92,7 +92,19 @@ body
         cursor: pointer
         &:hover
             animation: balance 1s
-
+    &--imgContainer
+        position: relative
+    &--notifications
+        position: absolute
+        top:-100%
+        left:50%
+        padding:0rem 0.4rem
+        background-color: var(--Orange)
+        border-radius: 10px
+        font:
+            weight: 700
+            size:.8em
+    
 
 // MAIN PAGE CONTENT STYLES
 // MAIN PAGE SLIDE STYLES
@@ -258,7 +270,12 @@ body
         border-radius: 10px 
         text-align: center 
         margin-top:1rem
+        transition: opacity .3s , transform .3s
         cursor: pointer
+        &:hover
+            opacity:0.5
+            transform: scale(.9)
+            
     &_trash
         cursor: pointer    
 
@@ -295,17 +312,16 @@ body
         color: var(--Grayish_blue)
         &--item
             position: relative
-            overflow: hidden
             cursor: pointer
             transform-origin: center
             &::after
                 content:""
                 position: absolute
                 left:0
-                bottom:0
+                bottom:-10px
                 width:100%
-                height:1px
-                background-color: var(--Grayish_blue)
+                height:3px
+                background-color: var(--Orange)
                 transform-origin: center
                 transform: scaleX(0)
                 transition: transform .3s

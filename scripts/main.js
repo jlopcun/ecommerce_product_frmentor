@@ -29,14 +29,10 @@ window.addEventListener('DOMContentLoaded',()=>{
     $closeAlert.addEventListener('click',()=>openAlert($slideAlert))
     $userInteraction.addEventListener('click',(e)=>{
         if(e.target.dataset.add) editAmount(Number($productAmount.textContent),$productAmount,e.target.dataset.add)
-        else if (e.target.dataset.cart) addToCart(Number($productAmount.textContent),$pageCart.querySelector('.pageCart__wrapper'))
+        else if (e.target.dataset.cart) addToCart($productAmount,$pageCart.querySelector('.pageCart__wrapper'))
     })
     $navCart.addEventListener('click',()=>{
         $pageCart.classList.toggle('OPENED')
-        const $trash = id('trash')
-        $trash.addEventListener('click',()=>{
-            $pageCart.querySelector('.pageCart__wrapper').innerHTML = `<span class="empty">Your cart is empty</span>`
-        })
     })
     
 })
